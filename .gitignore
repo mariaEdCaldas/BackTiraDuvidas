@@ -8,6 +8,9 @@ __pycache__/
 venv/
 env/
 *.pyc
+*.env
+
+node_modules
 
 # Local development settings
 local_settings.py

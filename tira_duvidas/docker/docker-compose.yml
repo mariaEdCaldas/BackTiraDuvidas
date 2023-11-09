@@ -1,0 +1,25 @@
+# for local development
+version: '3.7'
+services:
+  tira_duvidas_db:
+    image: postgres:13
+    restart: always
+    container_name: tira_duvidas_db
+    environment:
+      POSTGRES_USER: tira_duvidas_back
+      POSTGRES_PASSWORD: tira_duvidas_back
+      # POSTGRES_DB: tira_duvidas
+      PGDATA: /var/lib/postgresql/data/pgdata
+    # volumes:
+      # - /var/lib/postgresql/data:/var/lib/postgresql/data
+      # - ./postgresql/pg_hba.conf:/var/lib/postgresql/data/pgdata/pg_hba.conf
+      # - ./postgresql/postgresql.conf:/var/lib/postgresql/data/pgdata/postgresql.conf
+    ports:
+      - "5432:5432"
+    # command: ["postgres", "-c", "config_file=/etc/postgresql/postgres.conf"]
+    # networks:
+    #   - ol_manager_net
+
+# networks:
+#   ol_manager_net:
+#     driver: bridge
