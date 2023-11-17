@@ -96,7 +96,7 @@ export class AuthService {
 
     user.hash = null;
     user.status = UserStatus.ACTIVE;
-    return await user.save();
+    return await this.userService.save(user);
   }
 
   async forgotPassword(email: string): Promise<void> {
@@ -151,7 +151,7 @@ export class AuthService {
     }
 
     user.password = password;
-    return await user.save();
+    return await this.userService.save(user);
   }
 
   async myProfile(user: User): Promise<User> {

@@ -10,16 +10,16 @@
   "keepConnectionAlive": true,
   "logging": true,
   "entities": [
-    "/home/wende/Documentos/projects/ufms/BackTiraDuvidas/tira_duvidas/src/database/../**/*.entity{.ts,.js}"
+    "C:\\Users\\truna\\PROEJTOS-GIT\\BACK-TiraDuvidas\\BackTiraDuvidas\\tira_duvidas\\src\\database/../**/*.entity{.ts,.js}"
   ],
   "migrations": [
-    "/home/wende/Documentos/projects/ufms/BackTiraDuvidas/tira_duvidas/src/database/migrations/**/*{.ts,.js}"
+    "C:\\Users\\truna\\PROEJTOS-GIT\\BACK-TiraDuvidas\\BackTiraDuvidas\\tira_duvidas\\src\\database/migrations/**/*{.ts,.js}"
   ],
   "seeds": [
-    "/home/wende/Documentos/projects/ufms/BackTiraDuvidas/tira_duvidas/src/database/seeds/**/*{.ts,.js}"
+    "C:\\Users\\truna\\PROEJTOS-GIT\\BACK-TiraDuvidas\\BackTiraDuvidas\\tira_duvidas\\src\\database/seeds/**/*{.ts,.js}"
   ],
   "factories": [
-    "/home/wende/Documentos/projects/ufms/BackTiraDuvidas/tira_duvidas/src/database/factories/**/*{.ts,.js}"
+    "C:\\Users\\truna\\PROEJTOS-GIT\\BACK-TiraDuvidas\\BackTiraDuvidas\\tira_duvidas\\src\\database/factories/**/*{.ts,.js}"
   ],
   "cli": {
     "entitiesDir": "src",
