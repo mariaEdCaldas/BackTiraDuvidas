@@ -1,0 +1,32 @@
+{
+  "type": "postgres",
+  "host": "127.0.0.1",
+  "port": 5432,
+  "username": "tira_duvidas_back",
+  "password": "tira_duvidas_back",
+  "database": "tira_duvidas",
+  "synchronize": false,
+  "dropSchema": false,
+  "keepConnectionAlive": true,
+  "logging": true,
+  "entities": [
+    "C:\\Users\\truna\\PROEJTOS-GIT\\BACK-TiraDuvidas\\BackTiraDuvidas\\tira_duvidas\\src\\database/../**/*.entity{.ts,.js}"
+  ],
+  "migrations": [
+    "C:\\Users\\truna\\PROEJTOS-GIT\\BACK-TiraDuvidas\\BackTiraDuvidas\\tira_duvidas\\src\\database/migrations/**/*{.ts,.js}"
+  ],
+  "seeds": [
+    "C:\\Users\\truna\\PROEJTOS-GIT\\BACK-TiraDuvidas\\BackTiraDuvidas\\tira_duvidas\\src\\database/seeds/**/*{.ts,.js}"
+  ],
+  "factories": [
+    "C:\\Users\\truna\\PROEJTOS-GIT\\BACK-TiraDuvidas\\BackTiraDuvidas\\tira_duvidas\\src\\database/factories/**/*{.ts,.js}"
+  ],
+  "cli": {
+    "entitiesDir": "src",
+    "migrationsDir": "src/database/migrations",
+    "subscribersDir": "subscriber"
+  },
+  "extra": {
+    "max": 100
+  }
+}
