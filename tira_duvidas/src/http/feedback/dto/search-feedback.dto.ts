@@ -1,12 +1,11 @@
-import { PartialType } from '@nestjs/mapped-types';
-import { CreateFeedbackDto } from './create-feedback.dto';
-import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { ApiPropertyOptional } from '@nestjs/swagger';
 import { IsEnum, IsInt, IsOptional, IsString } from 'class-validator';
 import { FeedbackStatus } from '../enums/feedback-status.enum';
 
-export class UpdateFeedbackDto {
-  @ApiProperty({ description: 'ID do feedback' })
-  id: number;
+export class SearchFeedbackDto {
+  @ApiPropertyOptional({ description: 'ID do feedback' })
+  @IsOptional()
+  id?: number;
 
   @ApiPropertyOptional({ description: 'ID do usuário que realizou o feedback' })
   @IsOptional()

@@ -2,6 +2,8 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { FindOneOptions, Repository } from 'typeorm';
 import { Feedback } from '../entities/feedback.entity';
 import { FeedbackStatus } from '../enums/feedback-status.enum';
+import { CreateFeedbackDto } from '../dto/create-feedback.dto';
+import { UpdateFeedbackDto } from '../dto/update-feedback.dto';
 
 export class FeedbackTypeormRepository {
   constructor(

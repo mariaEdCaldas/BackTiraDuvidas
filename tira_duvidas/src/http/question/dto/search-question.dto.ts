@@ -1,5 +1,6 @@
 import { ApiPropertyOptional } from '@nestjs/swagger';
 import { IsEnum, IsInt, IsString } from 'class-validator';
+import { QuestionStatus } from '../enums/question-status.enum';
 
 export class SearchQuestionDto {
   @ApiPropertyOptional({ description: 'ID da dúvida' })

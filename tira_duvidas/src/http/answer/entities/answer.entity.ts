@@ -20,56 +20,27 @@ export class Answer {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ unique: true, nullable: true })
-  email: string | null;
+  @Column({ name: 'question_id' })
+  questionId: number;
 
-  @Column({ nullable: true })
-  password: string;
+  @Column({ name: 'respondent_id' })
+  respondentId: number;
 
-  public previousPassword: string;
+  @Column({ name: 'auditor_id' })
+  auditorId: number;
 
-  @AfterLoad()
-  public loadPreviousPassword(): void {
-    this.previousPassword = this.password;
-  }
+  @Column({ type: 'text', name: 'description' })
+  description: string;
 
-  @BeforeInsert()
-  @BeforeUpdate()
-  async setPassword() {
-    if (this.previousPassword !== this.password && this.password) {
-      const salt = await bcrypt.genSalt();
-      this.password = await bcrypt.hash(this.password, salt);
-    }
-  }
-
-  @Column({ default: AuthProvidersEnum.EMAIL })
-  provider: string;
-
-  @Index()
-  @Column({ nullable: true })
-  firstName: string | null;
-
-  @Index()
-  @Column({ nullable: true })
-  lastName: string | null;
-
-  @Index()
-  @Column({ nullable: false, type: 'enum', enum: RoleEnum })
-  role: RoleEnum;
-
-  @Column({ nullable: false, type: 'enum', enum: AnswerStatus })
+  @Column({ type: 'enum', enum: AnswerStatus, name: 'status' })
   status?: AnswerStatus;
 
-  @Column({ nullable: true })
-  @Index()
-  hash: string | null;
-
-  @CreateDateColumn()
+  @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;
 
-  @UpdateDateColumn()
+  @UpdateDateColumn({ name: 'updated_at' })
   updatedAt: Date;
 
-  @DeleteDateColumn()
+  @DeleteDateColumn({ name: 'deleted_at' })
   deletedAt: Date;
 }

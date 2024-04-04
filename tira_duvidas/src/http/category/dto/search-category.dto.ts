@@ -1,10 +1,11 @@
-import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { ApiPropertyOptional } from '@nestjs/swagger';
 import { IsInt, IsOptional, IsString } from 'class-validator';
 
-export class UpdateCategoryDto {
-  @ApiProperty({ description: 'ID da categoria' })
+export class SearchCategoryDto {
+  @ApiPropertyOptional({ description: 'ID da categoria' })
+  @IsOptional()
   @IsInt()
-  id: number;
+  id?: number;
 
   @ApiPropertyOptional({ description: 'Nome da categoria' })
   @IsOptional()

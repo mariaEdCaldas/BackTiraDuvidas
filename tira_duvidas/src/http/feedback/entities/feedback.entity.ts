@@ -15,61 +15,29 @@ import { FeedbackStatus } from '../enums/feedback-status.enum';
 import * as bcrypt from 'bcryptjs';
 import { AuthProvidersEnum } from 'src/auth/auth-providers.enum';
 
-@Entity('feedback')
+@Entity('feedbacks')
 export class Feedback {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ unique: true, nullable: true })
-  email: string | null;
+  @Column({ name: 'user_id' })
+  userId: number;
 
-  @Column({ nullable: true })
-  password: string;
+  @Column({ name: 'answer_id' })
+  answerId: number;
 
-  public previousPassword: string;
+  @Column({ type: 'text', name: 'justification' })
+  justification: string;
 
-  @AfterLoad()
-  public loadPreviousPassword(): void {
-    this.previousPassword = this.password;
-  }
+  @Column({ type: 'enum', enum: FeedbackStatus, name: 'situation' })
+  situation?: FeedbackStatus;
 
-  @BeforeInsert()
-  @BeforeUpdate()
-  async setPassword() {
-    if (this.previousPassword !== this.password && this.password) {
-      const salt = await bcrypt.genSalt();
-      this.password = await bcrypt.hash(this.password, salt);
-    }
-  }
-
-  @Column({ default: AuthProvidersEnum.EMAIL })
-  provider: string;
-
-  @Index()
-  @Column({ nullable: true })
-  firstName: string | null;
-
-  @Index()
-  @Column({ nullable: true })
-  lastName: string | null;
-
-  @Index()
-  @Column({ nullable: false, type: 'enum', enum: RoleEnum })
-  role: RoleEnum;
-
-  @Column({ nullable: false, type: 'enum', enum: FeedbackStatus })
-  status?: FeedbackStatus;
-
-  @Column({ nullable: true })
-  @Index()
-  hash: string | null;
-
-  @CreateDateColumn()
+  @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;
 
-  @UpdateDateColumn()
+  @UpdateDateColumn({ name: 'updated_at' })
   updatedAt: Date;
 
-  @DeleteDateColumn()
+  @DeleteDateColumn({ name: 'deleted_at' })
   deletedAt: Date;
 }
