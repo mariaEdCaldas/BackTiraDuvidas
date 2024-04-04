@@ -7,7 +7,7 @@ import { join } from 'path';
 import { MailService } from './mail.service';
 import { Mail } from './entities/mail-typeorm.entity';
 import { MailController } from './mail.controller';
-import { UserModule } from 'src/user/user.module';
+import { UserModule } from '../user/user.module';
 import { MailRepositoryTypeorm } from './repositories/mail.repository.typeorm';
 
 @Module({

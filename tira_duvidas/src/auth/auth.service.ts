@@ -1,14 +1,14 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { User } from 'src/user/entities/user.entity';
+import { User } from 'src/http/user/entities/user.entity';
 import * as bcrypt from 'bcryptjs';
 import { AuthEmailLoginDto } from './dto/auth-email-login.dto';
 import { AuthUpdateDto } from './dto/auth-update.dto';
 import { randomStringGenerator } from '@nestjs/common/utils/random-string-generator.util';
-import { UserStatus } from 'src/user/enums/user-status.enum';
+import { UserStatus } from 'src/http/user/enums/user-status.enum';
 import * as crypto from 'crypto';
-import { UserService } from 'src/user/user.service';
-import { MailService } from 'src/mail/mail.service';
+import { UserService } from 'src/http/user/user.service';
+import { MailService } from 'src/http/mail/mail.service';
 import { RegisterUserDto } from './dto/register-user.dto';
 
 @Injectable()
@@ -96,7 +96,8 @@ export class AuthService {
 
     user.hash = null;
     user.status = UserStatus.ACTIVE;
-    return await user.save();
+    const result = await this.userService.update(user.id, user);
+    return result;
   }
 
   async forgotPassword(email: string): Promise<void> {
@@ -151,7 +152,8 @@ export class AuthService {
     }
 
     user.password = password;
-    return await user.save();
+    const result = this.userService.update(user.id, user);
+    return await result;
   }
 
   async myProfile(user: User): Promise<User> {

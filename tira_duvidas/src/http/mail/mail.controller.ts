@@ -1,9 +1,9 @@
 import { Controller, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
-import { Roles } from 'src/role/role.decorator';
-import { RoleEnum } from 'src/role/role.enum';
-import { RolesGuard } from 'src/role/roles.guard';
+import { Roles } from '../role/role.decorator';
+import { RoleEnum } from '../role/role.enum';
+import { RolesGuard } from '../role/roles.guard';
 import { MailService } from './mail.service';
 
 @ApiBearerAuth()

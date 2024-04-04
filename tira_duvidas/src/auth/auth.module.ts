@@ -6,8 +6,8 @@ import { JwtModule } from '@nestjs/jwt';
 import { JwtStrategy } from './strategies/jwt.strategy';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AnonymousStrategy } from './strategies/anonymous.strategy';
-import { UserModule } from 'src/user/user.module';
-import { MailModule } from 'src/mail/mail.module';
+import { UserModule } from 'src/http/user/user.module';
+import { MailModule } from 'src/http/mail/mail.module';
 
 @Module({
   imports: [
