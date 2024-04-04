@@ -35,4 +35,9 @@ export class UserService {
   softDelete(id: number): Promise<User> {
     return new Promise(() => new User());
   }
+  save(createProfileDto: User) {
+    return this.usersRepository.save(
+      this.usersRepository.create(createProfileDto),
+    );
+  }
 }
