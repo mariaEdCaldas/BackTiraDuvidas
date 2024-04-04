@@ -7,6 +7,8 @@ import {
   DeleteDateColumn,
   Entity,
   Index,
+  JoinColumn,
+  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -14,6 +16,8 @@ import { RoleEnum } from 'src/http/role/role.enum';
 import { FeedbackStatus } from '../enums/feedback-status.enum';
 import * as bcrypt from 'bcryptjs';
 import { AuthProvidersEnum } from 'src/auth/auth-providers.enum';
+import { User } from 'src/http/user/entities/user.entity';
+import { Answer } from 'src/http/answer/entities/answer.entity';
 
 @Entity('feedbacks')
 export class Feedback {
@@ -40,4 +44,12 @@ export class Feedback {
 
   @DeleteDateColumn({ name: 'deleted_at' })
   deletedAt: Date;
+
+  @ManyToOne(() => User)
+  @JoinColumn({ name: 'user_id' })
+  user: User;
+
+  @ManyToOne(() => Answer)
+  @JoinColumn({ name: 'answer_id' })
+  answer: Answer;
 }

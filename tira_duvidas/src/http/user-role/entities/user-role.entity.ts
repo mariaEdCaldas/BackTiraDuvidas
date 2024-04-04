@@ -4,10 +4,13 @@ import {
   DeleteDateColumn,
   Entity,
   Index,
+  JoinTable,
+  ManyToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 import { RoleEnum } from 'src/http/role/role.enum';
+import { Category } from 'src/http/category/entities/category.entity';
 
 @Entity({ name: 'user_roles' })
 @Index(['userId', 'role'], {
@@ -32,4 +35,8 @@ export class UserRole {
 
   @DeleteDateColumn({ name: 'deleted_at' })
   deletedAt: Date;
+
+  @ManyToMany(() => Category)
+  @JoinTable()
+  categories: Category[];
 }
