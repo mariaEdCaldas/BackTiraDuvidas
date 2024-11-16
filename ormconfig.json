@@ -1,0 +1,32 @@
+{
+  "type": "postgres",
+  "host": "127.0.0.1",
+  "port": 5432,
+  "username": "tira_duvidas_back",
+  "password": "tira_duvidas_back",
+  "database": "tira_duvidas_back",
+  "synchronize": false,
+  "dropSchema": false,
+  "keepConnectionAlive": true,
+  "logging": true,
+  "entities": [
+    "/home/wende/Documentos/projects/ufms/BackTiraDuvidas/tira_duvidas/src/database/../**/*.entity{.ts,.js}"
+  ],
+  "migrations": [
+    "/home/wende/Documentos/projects/ufms/BackTiraDuvidas/tira_duvidas/src/database/migrations/**/*{.ts,.js}"
+  ],
+  "seeds": [
+    "/home/wende/Documentos/projects/ufms/BackTiraDuvidas/tira_duvidas/src/database/seeds/**/*{.ts,.js}"
+  ],
+  "factories": [
+    "/home/wende/Documentos/projects/ufms/BackTiraDuvidas/tira_duvidas/src/database/factories/**/*{.ts,.js}"
+  ],
+  "cli": {
+    "entitiesDir": "src",
+    "migrationsDir": "src/database/migrations",
+    "subscribersDir": "subscriber"
+  },
+  "extra": {
+    "max": 100
+  }
+}
