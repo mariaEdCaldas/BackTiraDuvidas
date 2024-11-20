@@ -15,6 +15,8 @@ import { FeedbackModule } from './http/feedback/feedback.module';
 import { QuestionModule } from './http/question/question.module';
 import { UserRoleModule } from './http/user-role/user-role.module';
 import { ScheduleModule } from '@nestjs/schedule';
+import { DataSource } from 'typeorm';
+import { appDatabase } from './database/app-data-source';
 
 @Module({
   imports: [
@@ -45,4 +47,8 @@ import { ScheduleModule } from '@nestjs/schedule';
   ],
   providers: [],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(private dataSource: DataSource) {
+    appDatabase.dataSource = this.dataSource;
+  }
+}
