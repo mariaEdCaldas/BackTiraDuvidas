@@ -50,14 +50,14 @@ export abstract class GenericService<
     return await this.repo.exist(dto);
   }
 
-  async getOneFromARelatedEntity<RelatedEntity>(
+  async getOneFromARelatedEntity<RelatedEntity extends object>(
     item: Entity,
     relation: string,
   ): Promise<RelatedEntity | undefined> {
     return await this.repo.getOneFromARelatedEntity(item, relation);
   }
 
-  async getManyFromARelatedEntity<RelatedEntity>(
+  async getManyFromARelatedEntity<RelatedEntity extends object>(
     item: Entity,
     relation: string,
   ): Promise<RelatedEntity[] | undefined> {
