@@ -1,6 +1,6 @@
 import { IGenericEntity } from './generic-entity.interface';
 import { PaginationResult } from './pagination-options';
-import { FindConditions } from 'typeorm';
+import { FindOptions } from 'typeorm';
 
 export interface IGenericRepository<Entity extends IGenericEntity> {
   insertOne<DTO>(dto: DTO): Promise<Entity>;
@@ -30,7 +30,7 @@ export interface IGenericRepository<Entity extends IGenericEntity> {
     relation: string,
   ): Promise<RelatedEntity[] | undefined>;
   update<DTO>(
-    filter: FindConditions<Entity>,
+    filter: FindOptions<Entity>,
     dto: DTO,
   ): Promise<Entity | undefined>;
   upsert<DTO>(dto: DTO): Promise<Entity | Entity[]>;
